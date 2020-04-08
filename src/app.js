@@ -83,12 +83,16 @@ class App extends Component {
     // handleSearch={(e) => this.handleSearch(e)}
     // handleSearch={() => this.handleSearch.bind(this)}
     return (
-      <AppContent
+      /*
         userinfo={this.state.userinfo}
         repos={this.state.repos}
         starred={this.state.starred}
         isFetching={this.state.isFetching}
         isFetchingRepos={this.state.isFetchingRepos}
+        {...this.state} representa a mesma coisa mas usando spread operator ...
+      */
+      <AppContent
+        {...this.state}
         onHandleSearch={this.handleSearch}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}
