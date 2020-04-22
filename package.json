@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dashboard -- node server.js",
-    "build": "webpack --progress --config webpack.prod.config -p"
+    "build": "NODE_ENV=production webpack --progress --config webpack.prod.config -p"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
