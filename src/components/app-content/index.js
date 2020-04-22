@@ -3,10 +3,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Search from './search'
-import UserInfo from './user-info'
-import Actions from './actions'
-import Repos from './repos'
+import Search from '../search'
+import UserInfo from '../user-info'
+import Actions from '../actions'
+import Repos from '../repos'
+
+import style from './app-content.css'
 
 const AppContent = ({
   userinfo,
@@ -18,9 +20,9 @@ const AppContent = ({
   getRepos,
   getStarred
 }) => (
-  <div className='app'>
+  <div className={style.app}>
     <Search isDisabled={isFetching} onHandleSearch={onHandleSearch} />
-    {isFetching && <div className='loading'>Carregando...</div>}
+    {isFetching && <div className={style.loading}>Carregando...</div>}
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {
       !!userinfo &&

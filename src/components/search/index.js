@@ -1,14 +1,15 @@
 'use strict'
 
 import React from 'react'
-
 import PropTypes from 'prop-types'
 
+import style from './search.css'
+
 const Search = ({ onHandleSearch, isDisabled }) => (
-  <div className='search'>
+  <div className={style.search}>
     <input
       type='text'
-      placeholder='Digite o nome do usuário'
+      placeholder='Digite o nome do usuário:'
       disabled={isDisabled}
       onKeyUp={onHandleSearch}
     />

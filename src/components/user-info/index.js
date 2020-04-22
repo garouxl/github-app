@@ -3,15 +3,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import style from './user-info.css'
+
 const UserInfo = ({ userinfo }) => (
-  <div className='user-info'>
+  <div className={style.userInfo}>
     <img src={userinfo.photo} alt='imagem' />
-    <h1 className='username'>
+    <h1 className={style.username}>
       <a href={`'https://api.github.com/users/${userinfo.login}'`}>
         {userinfo.username}
       </a>
     </h1>
-    <ul className='repos-name'>
+    <ul className={style.reposName}>
       <li>Repositorios: {userinfo.repos}</li>
       <li>Seguidores: {userinfo.followers}</li>
       <li>Seguindo: {userinfo.following}</li>
