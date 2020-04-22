@@ -9,7 +9,7 @@ const Search = ({ onHandleSearch, isDisabled }) => (
   <div className={style.search}>
     <input
       type='text'
-      placeholder='Digite o nome do usuário:'
+      placeholder='Digite o nome de usuário do Github'
       disabled={isDisabled}
       onKeyUp={onHandleSearch}
     />
