@@ -43,6 +43,7 @@ class App extends Component {
             userinfo: {
               username: result.name,
               photo: result.avatar_url,
+              url: result.html_url,
               login: result.login,
               repos: result.public_repos,
               followers: result.followers,

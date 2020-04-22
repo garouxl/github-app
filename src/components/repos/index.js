@@ -12,7 +12,13 @@ const Repos = ({ className, title, repos }) => (
       {
         repos.map((repo, index) => (
           <li key={index}>
-            <a href={repo.html_url}>{repo.name}</a>
+            <a
+              target='_blank'
+              rel='noopener noreferrer'
+              href={repo.html_url}
+            >
+              {repo.name}
+            </a>
           </li>
         ))
       }

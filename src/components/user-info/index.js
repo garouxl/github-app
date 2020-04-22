@@ -9,7 +9,7 @@ const UserInfo = ({ userinfo }) => (
   <div className={style.userInfo}>
     <img src={userinfo.photo} alt='imagem' />
     <h1 className={style.username}>
-      <a href={`'https://api.github.com/users/${userinfo.login}'`}>
+      <a target='_blank' rel='noopener noreferrer' href={userinfo.url}>
         {userinfo.username}
       </a>
     </h1>
