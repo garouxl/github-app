@@ -3,10 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import style from './actions.css'
+import './actions.css'
 
 const Actions = ({ getRepos, getStarred, isFetchingRepos }) => (
-  <div className={style.actions}>
+  <div className='actions'>
     <button
       onClick={getRepos}
     >
@@ -17,7 +17,7 @@ const Actions = ({ getRepos, getStarred, isFetchingRepos }) => (
     >
       Ver favoritos
     </button>
-    {isFetchingRepos && <div className={style.loading}>carregando...</div>}
+    {isFetchingRepos && <div className='loading'>carregando...</div>}
   </div>
 )
 

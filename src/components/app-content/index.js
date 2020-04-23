@@ -8,7 +8,7 @@ import UserInfo from 'components/user-info'
 import Actions from 'components/actions'
 import Repos from 'components/repos'
 
-import style from './app-content.css'
+import './app-content.css'
 
 const AppContent = ({
   userinfo,
@@ -20,9 +20,9 @@ const AppContent = ({
   getRepos,
   getStarred
 }) => (
-  <div className={style.app}>
+  <div className='app'>
     <Search isDisabled={isFetching} onHandleSearch={onHandleSearch} />
-    {isFetching && <div className={style.loading}>Carregando...</div>}
+    {isFetching && <div className='loading'>Carregando...</div>}
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {
       !!userinfo &&

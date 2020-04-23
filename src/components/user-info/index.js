@@ -3,17 +3,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import style from './user-info.css'
+import './user-info.css'
 
 const UserInfo = ({ userinfo }) => (
-  <div className={style.userInfo}>
+  <div className='userInfo'>
     <img src={userinfo.photo} alt='imagem' />
-    <h1 className={style.username}>
+    <h1 className='username'>
       <a target='_blank' rel='noopener noreferrer' href={userinfo.url}>
         {userinfo.username}
       </a>
     </h1>
-    <ul className={style.reposName}>
+    <ul className='reposName'>
       <li>Repositorios: {userinfo.repos}</li>
       <li>Seguidores: {userinfo.followers}</li>
       <li>Seguindo: {userinfo.following}</li>

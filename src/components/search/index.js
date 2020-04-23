@@ -3,10 +3,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import style from './search.css'
+import './search.css'
 
 const Search = ({ onHandleSearch, isDisabled }) => (
-  <div className={style.search}>
+  <div className='search'>
     <input
       type='text'
       placeholder='Digite o nome de usuário do Github'
