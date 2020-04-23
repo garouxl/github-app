@@ -3,7 +3,39 @@
 import { storiesOf } from '@kadira/storybook'
 import React from 'react'
 
-storiesOf('Repos', module)
-  .add('First Repos story', () => (
-    <h1>Repos</h1>
-  ))
+import Repos from './index'
+
+const story = storiesOf('Repos component', module)
+
+story.add('With title prop', () => (
+  <Repos
+    title='Favoritos'
+  />
+))
+
+story.add('With title & repos', () => (
+  <Repos
+    title='Favoritos'
+    repos={[{
+      html_url: 'http://google.com',
+      name: 'Google.com'
+    }]}
+  />
+))
+
+story.add('With title & repos & class', () => (
+  <Repos
+    className='repos'
+    title='Favoritos'
+    repos={[
+      {
+        html_url: 'http://google.com',
+        name: 'Google.com'
+      },
+      {
+        html_url: 'http://terra.com.br',
+        name: 'Terra.com'
+      }
+    ]}
+  />
+))

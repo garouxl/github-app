@@ -8,9 +8,10 @@
 .repos li,
 .starred li {
   padding: 10px 0;
+  list-style: none;
 }
 
-.repos li + li,
-.starred li + li {
+.repos li:not(:first-child),
+.starred li:not(:first-child) {
   border-top: 1px solid #ccc;
 }
