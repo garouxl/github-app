@@ -56,7 +56,7 @@ module.exports = validate(
         test: /\.css$/,
         exclude: /node_modules|(search|style)\.css/,
         include: /src/,
-        loader: styles.extract('style', 'css?modules')
+        loader: styles.extract('style', 'css')
       }, {
         test: /(search|style)\.css$/,
         exclude: /node_modules/,
