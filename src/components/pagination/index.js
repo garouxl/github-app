@@ -1,8 +1,9 @@
 'use strict'
 
 import React from 'react'
+import pagination from '../../utils/pagination'
 
-const Pagination = () => (
+const Pagination = ({ total, activePages }) => (
   <div>Pagination</div>
 )
 
