@@ -18,7 +18,8 @@ const AppContent = ({
   isFetchingRepos,
   onHandleSearch,
   getRepos,
-  getStarred
+  getStarred,
+  handlePagination
 }) => (
   <div className='app'>
     <Search isDisabled={isFetching} onHandleSearch={onHandleSearch} />
@@ -32,28 +33,37 @@ const AppContent = ({
           isFetchingRepos={isFetchingRepos}
         />
     }
-    {!!repos.length &&
+    {!!repos.repos.length &&
       <Repos
         className='repos'
         title='repositórios'
         repos={repos}
+        handlePagination={(clicked) => handlePagination('repos', clicked)}
       />}
-    {!!starred.length &&
+    {!!starred.repos.length &&
       <Repos
         className='starred'
         title='favoritos'
         repos={starred}
+        handlePagination={(clicked) => handlePagination('starred', clicked)}
       />}
   </div>
 )
 
+const reposPropTypesShape = {
+  repos: PropTypes.array.isRequired,
+  pagination: PropTypes.object
+}
+
+// .shape serve para informar os tipos dentro de um objeto
 AppContent.propTypes = {
   userinfo: PropTypes.object,
-  repos: PropTypes.array.isRequired,
-  starred: PropTypes.array.isRequired,
+  repos: PropTypes.shape(reposPropTypesShape).isRequired,
+  starred: PropTypes.shape(reposPropTypesShape).isRequired,
   isFetching: PropTypes.bool.isRequired,
   isFetchingRepos: PropTypes.bool.isRequired,
   onHandleSearch: PropTypes.func.isRequired,
+  handlePagination: PropTypes.func.isRequired,
   getRepos: PropTypes.func.isRequired,
   getStarred: PropTypes.func.isRequired
 

@@ -48,7 +48,7 @@ const pagination = ({ total = 1, activePage = 1 } = {}) => {
   if (penultimatePage === (lastPage - 2)) {
     pages = [
       ...pages.slice(0, -1),
-      lastPage -1,
+      lastPage - 1,
       lastPage
     ]
   }

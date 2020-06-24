@@ -4,24 +4,29 @@ import React, { Component } from 'react'
 import ajax from '@fdaciuk/ajax'
 import AppContent from './components/app-content'
 
+const initialReposState = {
+  repos: [],
+  pagination: {}
+}
 class App extends Component {
   constructor () {
     super()
     this.state = {
       userinfo: null,
-      repos: [],
-      starred: [],
+      repos: initialReposState,
+      starred: initialReposState,
       isFetching: false,
       isFetchingRepos: false
     }
 
+    this.perPage = 3
     this.handleSearch = this.handleSearch.bind(this)
   }
 
-  getGitHubApiUrl (username, type) {
+  getGitHubApiUrl (username, type, page = 1) {
     const internalUser = username ? `/${username}` : ''
     const internalType = type ? `/${type}` : ''
-    return `https://api.github.com/users${internalUser}${internalType}`
+    return `https://api.github.com/users${internalUser}${internalType}?per_page=${this.perPage}&page=${page}`
   }
 
   // o evento aqui é sintético, existe apenas no react, como esse metodo é assincrono, não podemos usar o mesmo evento, pois o react zera ele após o uso
@@ -49,8 +54,8 @@ class App extends Component {
               followers: result.followers,
               following: result.following
             },
-            repos: [],
-            starred: []
+            repos: initialReposState,
+            starred: initialReposState
           })
         })
         .always(() => {
@@ -60,16 +65,23 @@ class App extends Component {
     }
   }
 
-  getRepos (type) {
+  getRepos (type, page) {
     return (e) => {
       this.setState({ isFetchingRepos: true })
       const username = this.state.userinfo.login
-      ajax().get(this.getGitHubApiUrl(username, type))
+      ajax().get(this.getGitHubApiUrl(username, type, page))
         .then((result) => {
           this.setState({
-            [type]: result.map(item => (
-              { name: item.name, html_url: item.html_url }
-            ))
+            [type]: {
+              repos: result.map(item => ({
+                name: item.name,
+                html_url: item.html_url
+              })),
+              pagination: {
+                ...this.state[type].pagination,
+                activePage: page
+              }
+            }
           })
         })
         .always(() => {
@@ -97,6 +109,7 @@ class App extends Component {
         onHandleSearch={this.handleSearch}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}
+        handlePagination={(type, page) => this.getRepos(type, page)()}
       />
     )
   }

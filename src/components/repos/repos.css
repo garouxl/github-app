@@ -5,13 +5,13 @@
   margin: 0 1%;
 }
 
-.repos li,
-.starred li {
+.repos ul:not([class='pagination']) li,
+.starred ul:not([class='pagination']) li {
   padding: 10px 0;
   list-style: none;
 }
 
-.repos li:not(:first-child),
-.starred li:not(:first-child) {
-  border-top: 1px solid #ccc;
+.repos ul:not([class='pagination']) li:not(:first-child),
+.starred ul:not([class='pagination']) li:not(:first-child) {
+  border-top: 1px solid #333;
 }

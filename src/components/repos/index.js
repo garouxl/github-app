@@ -2,39 +2,44 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import Pagination from 'components/pagination'
 
 import './repos.css'
 
-const Repos = ({ className, title, repos }) => (
+const Repos = ({ className, title, repos, handlePagination }) => (
   <div className={className}>
     <h2>{title}</h2>
     <ul>
       {
-        repos.map((repo, index) => (
+        repos.repos.map((repo, index) => (
           <li key={index}>
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href={repo.html_url}
-            >
-              {repo.name}
-            </a>
+            <a href={repo.html_url}>{repo.name}</a>
           </li>
         ))
       }
     </ul>
+    <Pagination total={10} activePage={repos.pagination.activePage} onClick={handlePagination} />
   </div>
 )
 
 Repos.defaultProps = {
-  className: '',
-  repos: []
+  className: ''
 }
 
 Repos.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
-  repos: PropTypes.array
+  handlePagination: PropTypes.func.isRequired,
+  repos: PropTypes.shape({
+    repos: PropTypes.arrayOf(PropTypes.shape({
+      link: PropTypes.string,
+      name: PropTypes.string.isRequired
+    })).isRequired,
+    pagination: PropTypes.shape({
+      total: PropTypes.number,
+      activePage: PropTypes.number
+    }).isRequired
+  })
 }
 
 export default Repos
