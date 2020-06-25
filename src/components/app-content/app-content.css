@@ -1,5 +1,9 @@
 .app {
   position: relative;
+  display: grid;
+  grid-template-rows: 8.5rem 21rem 7rem 20rem;
+  margin: 1rem auto;
+  max-width: 100rem;
 }
 
 .loading {

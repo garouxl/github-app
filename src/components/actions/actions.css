@@ -1,23 +1,16 @@
 .actions {
-  float: left;
-  width: 100%;
-  display: block;
-  justify-content: space-between;
   position: relative;
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  justify-content: space-around;
 }
 
-.actions button {
+.actions__button {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  height: 50px;
+  height: 5rem;
   text-transform: uppercase;
   width: 48%;
-  margin: 0 1%;
-}
-
-.actions .loading {
-  position: absolute;
-  top: 3.3em;
-  left: 1.5em;
 }

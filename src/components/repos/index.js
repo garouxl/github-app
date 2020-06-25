@@ -9,10 +9,10 @@ import './repos.css'
 const Repos = ({ className, title, repos, handlePagination }) => (
   <div className={className}>
     <h2>{title}</h2>
-    <ul>
+    <ul className={`${className}__list`}>
       {
         repos.repos.map((repo, index) => (
-          <li key={index}>
+          <li className={`${className}__item`} key={index}>
             <a href={repo.html_url}>{repo.name}</a>
           </li>
         ))

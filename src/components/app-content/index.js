@@ -7,6 +7,7 @@ import Search from '../search'
 import UserInfo from '../user-info'
 import Actions from '../actions'
 import Repos from '../repos'
+import Loading from '../loading'
 
 import './app-content.css'
 
@@ -23,7 +24,7 @@ const AppContent = ({
 }) => (
   <div className='app'>
     <Search isDisabled={isFetching} onHandleSearch={onHandleSearch} />
-    {isFetching && <div className='loading'>Carregando...</div>}
+    { isFetching && <Loading info='Carregando informações de usuário' top='6.3' left='1.5' /> }
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {
       !!userinfo &&
@@ -33,20 +34,22 @@ const AppContent = ({
           isFetchingRepos={isFetchingRepos}
         />
     }
-    {!!repos.repos.length &&
-      <Repos
-        className='repos'
-        title='repositórios'
-        repos={repos}
-        handlePagination={(clicked) => handlePagination('repos', clicked)}
-      />}
-    {!!starred.repos.length &&
-      <Repos
-        className='starred'
-        title='favoritos'
-        repos={starred}
-        handlePagination={(clicked) => handlePagination('starred', clicked)}
-      />}
+    {!!userinfo && <section className='repository'>
+      {!!repos.repos.length &&
+        <Repos
+          className='repos'
+          title='repositórios'
+          repos={repos}
+          handlePagination={(clicked) => handlePagination('repos', clicked)}
+        />}
+      {!!starred.repos.length &&
+        <Repos
+          className='starred'
+          title='favoritos'
+          repos={starred}
+          handlePagination={(clicked) => handlePagination('starred', clicked)}
+        />}
+    </section>}
   </div>
 )
 

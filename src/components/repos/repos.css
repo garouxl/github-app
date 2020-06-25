@@ -1,17 +1,25 @@
-.repos,
-.starred {
-  float: left;
-  width: 48%;
-  margin: 0 1%;
+.repository {
+  display: flex;
+  justify-content: space-around;
 }
 
-.repos ul:not([class='pagination']) li,
-.starred ul:not([class='pagination']) li {
-  padding: 10px 0;
+.repos{
+  grid-column: 1;
+  grid-row: 1;
+}
+.starred {
+  grid-column: 2;
+  grid-row: 1;
+
+}
+
+.repos__item,
+.starred__item {
+  padding: 1rem 0;
   list-style: none;
 }
 
-.repos ul:not([class='pagination']) li:not(:first-child),
-.starred ul:not([class='pagination']) li:not(:first-child) {
-  border-top: 1px solid #333;
+.repos__item:not(:first-child),
+.starred__item:not(:first-child) {
+  border-top: .1rem solid #333;
 }

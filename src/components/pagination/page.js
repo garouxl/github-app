@@ -15,7 +15,7 @@ const Page = ({ page, pageLink, onClick }) => {
     <Component
       href={pageLink}
       onClick={handleClick}
-      className='pagination-link'
+      className='pagination__link'
     >
       {page}
     </Component>

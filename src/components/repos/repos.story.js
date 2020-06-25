@@ -7,19 +7,19 @@ import Repos from './index'
 
 const story = storiesOf('Repos component', module)
 
-story.add('With title prop', () => (
-  <Repos
-    title='Favoritos'
-  />
-))
-
 story.add('With title & repos', () => (
   <Repos
     title='Favoritos'
-    repos={[{
-      html_url: 'http://google.com',
-      name: 'Google.com'
-    }]}
+    repos={{
+      repos: [{
+        html_url: 'http://google.com',
+        name: 'Google.com'
+      }],
+      pagination: {
+        total: 1,
+        activePage: 1
+      }
+    }}
   />
 ))
 
@@ -27,15 +27,15 @@ story.add('With title & repos & class', () => (
   <Repos
     className='repos'
     title='Favoritos'
-    repos={[
-      {
+    repos={{
+      repos: [{
         html_url: 'http://google.com',
         name: 'Google.com'
-      },
-      {
-        html_url: 'http://terra.com.br',
-        name: 'Terra.com'
+      }],
+      pagination: {
+        total: 1,
+        activePage: 1
       }
-    ]}
+    }}
   />
 ))

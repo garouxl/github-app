@@ -6,19 +6,25 @@ import PropTypes from 'prop-types'
 import './user-info.css'
 
 const UserInfo = ({ userinfo }) => (
-  <div className='userInfo'>
-    <img src={userinfo.photo} alt='imagem' />
-    <h1 className='username'>
+  <section className='user-info'>
+    <img className='user-info__user-image' src={userinfo.photo} alt='imagem' />
+    <h1 className='user-info__user-name'>
       <a target='_blank' rel='noopener noreferrer' href={userinfo.url}>
         {userinfo.username}
       </a>
     </h1>
-    <ul className='reposName'>
-      <li>Repositorios: {userinfo.repos}</li>
-      <li>Seguidores: {userinfo.followers}</li>
-      <li>Seguindo: {userinfo.following}</li>
+    <ul className='repos-list'>
+      <li className='repos-list__item'>
+        <em>Repositorios:</em> {userinfo.repos}
+      </li>
+      <li className='repos-list__item'>
+        <em>Seguidores:</em> {userinfo.followers}
+      </li>
+      <li className='repos-list__item'>
+        <em>Seguindo:</em> {userinfo.following}
+      </li>
     </ul>
-  </div>
+  </section>
 )
 
 UserInfo.propTypes = {

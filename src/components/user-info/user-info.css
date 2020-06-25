@@ -1,15 +1,20 @@
-.userInfo img {
+.user-info {
+  grid-column: 1;
+  grid-row: 2
+}
+
+.user-info__user-image {
   float: left;
-  margin: 0 20px 20px 0;
-  max-height: 200px;
+  margin: 0 2rem 0 0;
+  max-height: 20rem;
 }
 
-.reposInfo li {
-  padding: 5px;
-}
-
-ul {
+.repos-list {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.repos-list__item {
+  padding: .5rem;
 }

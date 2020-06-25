@@ -6,14 +6,15 @@ import PropTypes from 'prop-types'
 import './search.css'
 
 const Search = ({ onHandleSearch, isDisabled }) => (
-  <div className='search'>
+  <section className='search'>
     <input
+      className='search__field'
       type='text'
       placeholder='Digite o nome de usuário do Github'
       disabled={isDisabled}
       onKeyUp={onHandleSearch}
     />
-  </div>
+  </section>
 )
 
 Search.propTypes = {
