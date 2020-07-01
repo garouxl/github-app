@@ -1,6 +1,5 @@
 'use strict'
 
-const path = require('path')
 const common = require('../webpack/common')
 const webpackConfig = require('@kadira/storybook/dist/server/config/defaults/webpack.config')
 

@@ -27,8 +27,8 @@ module.exports = {
     exclude: /node_modules/,
     include: /src/,
     loader: 'babel'
-  }, 
-  
+  },
+
   cssLoader: {
     test: /\.css$/,
     exclude: /node_modules/,
